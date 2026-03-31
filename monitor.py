@@ -47,34 +47,47 @@ class Monitor:
         driver = self.nav.driver
 
         try:
-            print("Abrindo página pública para registrar a alteração...")
+            print("Abrindo Gmail para registrar a alteração...")
 
-            driver.get("https://www.selenium.dev/selenium/web/web-form.html")
+            driver.get("https://mail.google.com/mail/u/0/#inbox?compose=new")
 
-            wait = WebDriverWait(driver, 10)
+            wait = WebDriverWait(driver, 20)
 
-            campo_texto = wait.until(
-                EC.presence_of_element_located((By.NAME, "my-textarea"))
+            campo_para = wait.until(
+                EC.presence_of_element_located((By.NAME, "to"))
             )
+            campo_para.clear()
+            campo_para.send_keys("tiago3242@gmail.com")
 
-            mensagem = (
-                f"Alteração detectada no valor monitorado.\n"
+            campo_assunto = wait.until(
+                EC.presence_of_element_located((By.NAME, "subjectbox"))
+            )
+            campo_assunto.clear()
+            campo_assunto.send_keys("Alteração de preço detectada")
+
+            campo_corpo = wait.until(
+                EC.presence_of_element_located(
+                    (By.XPATH, '//div[@aria-label="Corpo da mensagem"]')
+                )
+            )
+            campo_corpo.click()
+            campo_corpo.send_keys(
+                f"Alteração de preço detectada.\n\n"
                 f"Valor antigo: {valor_antigo}\n"
                 f"Valor novo: {valor_novo}"
             )
 
-            campo_texto.clear()
-            campo_texto.send_keys(mensagem)
-
-            botao = wait.until(
-                EC.element_to_be_clickable((By.CSS_SELECTOR, "button"))
+            botao_enviar = wait.until(
+                EC.element_to_be_clickable(
+                    (By.XPATH, '//div[@role="button" and @aria-label*="Enviar"]')
+                )
             )
-            botao.click()
+            botao_enviar.click()
 
-            print("Texto preenchido e botão clicado com sucesso.")
+            print("E-mail preenchido e enviado com sucesso.")
 
         except Exception as erro:
-            print(f"Erro ao interagir com a outra página: {erro}")
+            print(f"Erro ao interagir com o Gmail: {erro}")
 
         finally:
             print("Voltando para a página monitorada...")
