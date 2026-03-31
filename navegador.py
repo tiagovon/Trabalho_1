@@ -2,11 +2,13 @@ import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
+from selenium.webdriver.chrome.options import Options
 
 
 class Navegador:
     def __init__(self):
-        self.driver = webdriver.Chrome()
+        options = Options()
+        self.driver = webdriver.Chrome(options=options)
 
     def acessar(self, url):
         try:
@@ -18,75 +20,98 @@ class Navegador:
 
     def pegar_valor(self, seletor):
         """
-        Se o usuário digitar um texto como 'Dólar',
-        tenta encontrar esse texto na página e retornar apenas o valor numérico próximo.
-        Se digitar XPath, usa o XPath diretamente.
+        Aceita:
+        - XPath
+        - texto comum, como: Dólar, Euro, Bitcoin etc.
         """
+
         try:
-            # Caso o usuário informe um XPath
             if seletor.startswith("/") or seletor.startswith("("):
                 elemento = self.driver.find_element(By.XPATH, seletor)
                 return self._extrair_numero(elemento.text)
 
-            # Caso o usuário informe texto comum, ex: Dólar
-            texto = seletor.strip().lower()
+            termo = seletor.strip().lower()
 
-            xpath_texto = (
+            xpath = (
                 "//*[contains("
                 "translate(normalize-space(.), "
                 "'ABCDEFGHIJKLMNOPQRSTUVWXYZÁÀÃÂÉÈÊÍÌÎÓÒÕÔÚÙÛÇ', "
                 "'abcdefghijklmnopqrstuvwxyzáàãâéèêíìîóòõôúùûç'"
                 "), "
-                f"'{texto}'"
+                f"'{termo}'"
                 ")]"
             )
 
-            elementos = self.driver.find_elements(By.XPATH, xpath_texto)
+            elementos = self.driver.find_elements(By.XPATH, xpath)
 
             for elemento in elementos:
-                # tenta pegar número no próprio texto do elemento
-                numero = self._extrair_numero(elemento.text)
-                if numero:
-                    return numero
+                textos_para_testar = []
 
-                # tenta pegar número no texto do pai
+                texto_atual = elemento.text.strip()
+                if texto_atual:
+                    textos_para_testar.append(texto_atual)
+
                 try:
                     pai = elemento.find_element(By.XPATH, "..")
-                    numero = self._extrair_numero(pai.text)
-                    if numero:
-                        return numero
+                    texto_pai = pai.text.strip()
+                    if texto_pai:
+                        textos_para_testar.append(texto_pai)
                 except Exception:
                     pass
 
-                # tenta pegar número no próximo irmão
                 try:
-                    irmao = elemento.find_element(By.XPATH, "./following-sibling::*[1]")
-                    numero = self._extrair_numero(irmao.text)
-                    if numero:
-                        return numero
+                    proximo = elemento.find_element(By.XPATH, "./following-sibling::*[1]")
+                    texto_proximo = proximo.text.strip()
+                    if texto_proximo:
+                        textos_para_testar.append(texto_proximo)
                 except Exception:
                     pass
+
+                for texto in textos_para_testar:
+                    numero = self._extrair_numero_associado(texto, termo)
+                    if numero:
+                        return numero
 
             return None
 
         except NoSuchElementException:
             return None
 
-    def _extrair_numero(self, texto):
+    def _extrair_numero_associado(self, texto, termo):
         """
-        Extrai apenas o número do texto.
-        Exemplos:
-        'Dólar 5,656' -> '5,656'
-        'R$ 132.097,00' -> '132.097,00'
+        Procura um número associado ao rótulo informado.
+        Ex:
+        'Dólar 5,223 Euro 5,224' com termo='euro' -> retorna 5,224
         """
         if not texto:
             return None
 
-        padrao = r"\d{1,3}(?:\.\d{3})*(?:,\d+)?|\d+(?:,\d+)?"
-        resultado = re.search(padrao, texto)
+        texto_limpo = " ".join(texto.split())
+        texto_lower = texto_limpo.lower()
+        termo_lower = termo.lower()
 
-        if resultado:
-            return resultado.group(0)
+        pos = texto_lower.find(termo_lower)
+        if pos == -1:
+            return None
+
+        trecho = texto_limpo[pos + len(termo):]
+
+        padrao = r"\d{1,3}(?:\.\d{3})*(?:,\d+)?|\d+(?:,\d+)?"
+        match = re.search(padrao, trecho)
+        if match:
+            return match.group(0)
+
+        return None
+
+    def _extrair_numero(self, texto):
+        if not texto:
+            return None
+
+        padrao = r"\d{1,3}(?:\.\d{3})*(?:,\d+)?|\d+(?:,\d+)?"
+        match = re.search(padrao, texto)
+
+        if match:
+            return match.group(0)
 
         return None
 

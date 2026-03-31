@@ -9,10 +9,10 @@ def main():
     nav = Navegador()
 
     if not nav.acessar(url):
-        print("Não foi possível abrir a página. Verifique a URL ou sua conexão.")
+        print("Não foi possível abrir a página.")
         return
 
-    monitor = Monitor(nav, seletor)
+    monitor = Monitor(nav, url, seletor)
     monitor.iniciar()
 
 
