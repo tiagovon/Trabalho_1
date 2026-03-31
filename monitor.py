@@ -13,6 +13,8 @@ class Monitor:
 
     def iniciar(self):
         while True:
+            self._esperar_pagina()
+
             valor_atual = self.nav.pegar_valor(self.seletor)
 
             if valor_atual is None:
@@ -36,10 +38,12 @@ class Monitor:
             time.sleep(5)
             self.nav.driver.refresh()
 
+    def _esperar_pagina(self):
+        WebDriverWait(self.nav.driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+
     def acao(self, valor_antigo, valor_novo):
-        """
-        Abre uma página pública de teste, escreve a mensagem e clica no botão.
-        """
         driver = self.nav.driver
 
         try:
