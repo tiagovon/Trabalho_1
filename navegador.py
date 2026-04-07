@@ -3,14 +3,21 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 
 
 class Navegador:
-    def __init__(self, timeout=10):
+    def __init__(self, timeout=30):
         options = Options()
         options.add_argument(r"--user-data-dir=C:\selenium_chrome_profile")
+        options.add_argument("--start-maximized")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-extensions")
+
         self.driver = webdriver.Chrome(options=options)
         self.driver.set_page_load_timeout(timeout)
+        self.driver.implicitly_wait(5)
 
     def acessar(self, url):
         try:
@@ -38,7 +45,7 @@ class Navegador:
                 return {
                     "valor": valor,
                     "metodo": "REGEX/TEXTO",
-                    "posicao": f'termo="{seletor}"'
+                    "posicao": f'termo=\"{seletor}\"'
                 }
 
             return None
@@ -76,4 +83,7 @@ class Navegador:
         return None
 
     def fechar(self):
-        self.driver.quit()
+        try:
+            self.driver.quit()
+        except Exception:
+            pass

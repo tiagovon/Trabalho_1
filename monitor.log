@@ -1,0 +1,165 @@
+2026-04-07 12:20:38,831 - INFO - Usuário: tiago
+2026-04-07 12:20:38,831 - INFO - URL monitorada: https://www.uol.com.br/
+2026-04-07 12:20:38,831 - INFO - Tipo de busca: texto
+2026-04-07 12:20:38,832 - INFO - Seletor: Dólar
+2026-04-07 12:20:40,095 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:20:40,095 - INFO - Valor inicial: 5,165
+2026-04-07 12:20:53,537 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:20:53,545 - INFO - Sem alteração: 5,165
+2026-04-07 12:21:06,714 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:21:06,715 - INFO - Sem alteração: 5,165
+2026-04-07 12:21:20,413 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:21:20,414 - INFO - Sem alteração: 5,165
+2026-04-07 12:21:35,743 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:21:35,744 - INFO - Sem alteração: 5,165
+2026-04-07 12:21:49,419 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:21:49,419 - INFO - Sem alteração: 5,165
+2026-04-07 12:22:03,526 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:22:03,527 - INFO - Sem alteração: 5,165
+2026-04-07 12:22:17,625 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:22:17,625 - INFO - Sem alteração: 5,165
+2026-04-07 12:22:31,196 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:22:31,196 - INFO - Sem alteração: 5,165
+2026-04-07 12:22:44,118 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:22:44,118 - INFO - Sem alteração: 5,165
+2026-04-07 12:22:57,581 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:22:57,581 - INFO - Sem alteração: 5,165
+2026-04-07 12:23:11,699 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:23:11,699 - INFO - Sem alteração: 5,165
+2026-04-07 12:23:24,757 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:23:24,758 - INFO - Sem alteração: 5,165
+2026-04-07 12:23:37,887 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:23:37,887 - INFO - Sem alteração: 5,165
+2026-04-07 12:23:50,592 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:23:50,592 - INFO - Sem alteração: 5,165
+2026-04-07 12:24:03,859 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:24:03,859 - INFO - Sem alteração: 5,165
+2026-04-07 12:24:16,772 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,165
+2026-04-07 12:24:16,772 - INFO - Sem alteração: 5,165
+2026-04-07 12:24:30,568 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,166
+2026-04-07 12:24:30,568 - INFO - Alteração detectada: 5,165 -> 5,166
+2026-04-07 12:24:30,568 - INFO - Abrindo Gmail para registrar alteração.
+2026-04-07 12:24:35,579 - ERROR - Erro ao interagir com o Gmail: Message: timeout: Timed out receiving message from renderer: 3.076
+  (Session info: chrome=146.0.7680.178)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6560729c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff655d9a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff655afdb2d]
+	chromedriver!(No symbol) [0x7ff655aea409]
+	chromedriver!(No symbol) [0x7ff655aea0f1]
+	chromedriver!(No symbol) [0x7ff655ae7d3b]
+	chromedriver!(No symbol) [0x7ff655ae865f]
+	chromedriver!(No symbol) [0x7ff655af7eca]
+	chromedriver!(No symbol) [0x7ff655b0edf7]
+	chromedriver!(No symbol) [0x7ff655b1654a]
+	chromedriver!(No symbol) [0x7ff655ae8e21]
+	chromedriver!(No symbol) [0x7ff655b0eb21]
+	chromedriver!(No symbol) [0x7ff655ba3f14]
+	chromedriver!(No symbol) [0x7ff655b49298]
+	chromedriver!(No symbol) [0x7ff655b4a183]
+	chromedriver!GetHandleVerifier [0x7ff65609de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff656098588+313348]
+	chromedriver!GetHandleVerifier [0x7ff6560b9d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff655db6785+31545]
+	chromedriver!GetHandleVerifier [0x7ff655dbfacc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff655da3634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff655da37e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff655d87e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7ff94586257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff9466caf08+28]
+
+2026-04-07 12:24:53,608 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,166
+2026-04-07 12:24:53,608 - INFO - Sem alteração: 5,166
+2026-04-07 12:24:58,359 - INFO - Monitoramento encerrado pelo usuário.
+2026-04-07 12:24:58,363 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)': /session/b4ac8818c58bc95e8c7d07c9653c6f78
+2026-04-07 12:25:02,469 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=64489): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/b4ac8818c58bc95e8c7d07c9653c6f78
+2026-04-07 12:25:06,557 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=64489): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/b4ac8818c58bc95e8c7d07c9653c6f78
+2026-04-07 12:33:16,965 - INFO - Usuário: tiago
+2026-04-07 12:33:16,965 - INFO - URL monitorada: https://www.uol.com.br/
+2026-04-07 12:33:16,966 - INFO - Tipo de busca: texto
+2026-04-07 12:33:16,966 - INFO - Seletor: Dólar
+2026-04-07 12:33:19,302 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:33:19,308 - INFO - Valor inicial: 5,167
+2026-04-07 12:33:34,022 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:33:34,023 - INFO - Sem alteração: 5,167
+2026-04-07 12:33:47,205 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:33:47,206 - INFO - Sem alteração: 5,167
+2026-04-07 12:34:00,494 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:34:00,494 - INFO - Sem alteração: 5,167
+2026-04-07 12:34:14,300 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:34:14,300 - INFO - Sem alteração: 5,167
+2026-04-07 12:34:27,765 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:34:27,765 - INFO - Sem alteração: 5,167
+2026-04-07 12:34:40,721 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:34:40,721 - INFO - Sem alteração: 5,167
+2026-04-07 12:34:54,164 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:34:54,165 - INFO - Sem alteração: 5,167
+2026-04-07 12:35:07,248 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,167
+2026-04-07 12:35:07,248 - INFO - Sem alteração: 5,167
+2026-04-07 12:35:22,298 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,168
+2026-04-07 12:35:22,299 - INFO - Alteração detectada: 5,167 -> 5,168
+2026-04-07 12:35:22,299 - INFO - Abrindo Gmail para registrar alteração.
+2026-04-07 12:35:49,076 - ERROR - Erro ao interagir com o Gmail: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6560729c5+2ed785]
+	chromedriver!GetHandleVerifier [0x7ff655d9a0d0+14e90]
+	chromedriver!(No symbol) [0x7ff655afdb2d]
+	chromedriver!(No symbol) [0x7ff655b56b9e]
+	chromedriver!(No symbol) [0x7ff655b56eac]
+	chromedriver!(No symbol) [0x7ff655ba6fe7]
+	chromedriver!(No symbol) [0x7ff655ba3b9b]
+	chromedriver!(No symbol) [0x7ff655b49298]
+	chromedriver!(No symbol) [0x7ff655b4a183]
+	chromedriver!GetHandleVerifier [0x7ff65609de0d+318bcd]
+	chromedriver!GetHandleVerifier [0x7ff656098588+313348]
+	chromedriver!GetHandleVerifier [0x7ff6560b9d7a+334b3a]
+	chromedriver!GetHandleVerifier [0x7ff655db6785+31545]
+	chromedriver!GetHandleVerifier [0x7ff655dbfacc+3a88c]
+	chromedriver!GetHandleVerifier [0x7ff655da3634+1e3f4]
+	chromedriver!GetHandleVerifier [0x7ff655da37e6+1e5a6]
+	chromedriver!GetHandleVerifier [0x7ff655d87e37+2bf7]
+	KERNEL32!BaseThreadInitThunk [0x7ff94586257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff9466caf08+28]
+
+2026-04-07 12:36:04,106 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,168
+2026-04-07 12:36:04,107 - INFO - Sem alteração: 5,168
+2026-04-07 12:36:16,836 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,168
+2026-04-07 12:36:16,836 - INFO - Sem alteração: 5,168
+2026-04-07 12:36:23,960 - INFO - Monitoramento encerrado pelo usuário.
+2026-04-07 12:36:23,963 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)': /session/aaad6b47830ddea09f2e13fbefcb05f7
+2026-04-07 12:36:28,017 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=52903): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/aaad6b47830ddea09f2e13fbefcb05f7
+2026-04-07 12:36:32,054 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=52903): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/aaad6b47830ddea09f2e13fbefcb05f7
+2026-04-07 12:48:28,248 - INFO - Usuário: tiago
+2026-04-07 12:48:28,248 - INFO - URL monitorada: https://www.uol.com.br/
+2026-04-07 12:48:28,249 - INFO - Tipo de busca: texto
+2026-04-07 12:48:28,249 - INFO - Seletor: Dólar
+2026-04-07 12:48:30,091 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:48:30,092 - INFO - Valor inicial: 5,164
+2026-04-07 12:48:44,084 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:48:44,084 - INFO - Sem alteração: 5,164
+2026-04-07 12:48:56,992 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:48:56,992 - INFO - Sem alteração: 5,164
+2026-04-07 12:49:10,854 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:49:10,858 - INFO - Sem alteração: 5,164
+2026-04-07 12:49:24,928 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:49:24,928 - INFO - Sem alteração: 5,164
+2026-04-07 12:49:38,726 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:49:38,726 - INFO - Sem alteração: 5,164
+2026-04-07 12:49:52,958 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:49:52,991 - INFO - Sem alteração: 5,164
+2026-04-07 12:50:07,969 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,164
+2026-04-07 12:50:07,969 - INFO - Sem alteração: 5,164
+2026-04-07 12:50:22,263 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,163
+2026-04-07 12:50:22,263 - INFO - Alteração detectada: 5,164 -> 5,163
+2026-04-07 12:50:22,263 - INFO - Abrindo página de registro da alteração.
+2026-04-07 12:50:23,100 - INFO - Página pública preenchida e botão acionado com sucesso.
+2026-04-07 12:50:41,863 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,163
+2026-04-07 12:50:41,864 - INFO - Sem alteração: 5,163
+2026-04-07 12:51:00,369 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,163
+2026-04-07 12:51:00,370 - INFO - Sem alteração: 5,163
+2026-04-07 12:51:13,069 - INFO - Encontrado por REGEX/TEXTO: termo="Dólar" -> 5,163
+2026-04-07 12:51:13,069 - INFO - Sem alteração: 5,163
+2026-04-07 12:51:21,088 - INFO - Monitoramento encerrado pelo usuário.
+2026-04-07 12:51:21,091 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)': /session/d013140b1acca80d12d12469c8327a9b
+2026-04-07 12:51:25,146 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=51373): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/d013140b1acca80d12d12469c8327a9b
+2026-04-07 12:51:29,204 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=51373): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/d013140b1acca80d12d12469c8327a9b

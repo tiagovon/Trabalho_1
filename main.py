@@ -14,10 +14,11 @@ def main():
         print("URL inválida. Use http:// ou https://")
         return
 
-    tipo_busca = input("Como deseja procurar o valor? Digite 'xpath' ou 'texto': ").strip().lower()
-    if tipo_busca not in ("xpath", "texto"):
-        print("Tipo de busca inválido.")
-        return
+    tipo_busca_input = input("Como deseja procurar o valor? Digite 'xpath' ou 'texto': ").strip().lower()
+    if tipo_busca_input == "xpath":
+        tipo_busca = "xpath"
+    else:
+        tipo_busca = "texto"
 
     seletor = input("Agora digite o conteúdo a procurar (ex: Dólar) ou o XPATH do elemento: ").strip()
     if not seletor:

@@ -78,49 +78,57 @@ class Monitor:
         driver = self.nav.driver
 
         try:
-            self.logger.info("Abrindo Gmail para registrar alteração.")
-            driver.get("https://mail.google.com/mail/u/0/#inbox?compose=new")
+            self.logger.info("Abrindo página de registro da alteração.")
+
+            html = f"""
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>Registro de Alteração</title>
+            </head>
+            <body>
+                <h1>Alteração detectada</h1>
+
+                <label for="mensagem">Mensagem:</label><br>
+                <textarea id="mensagem" rows="8" cols="60"></textarea><br><br>
+
+                <button id="btnConfirmar" onclick="document.getElementById('status').innerText='Botão clicado com sucesso';">
+                    Confirmar envio
+                </button>
+
+                <p id="status"></p>
+            </body>
+            </html>
+            """
+
+            driver.get("data:text/html;charset=utf-8," + html)
 
             wait = WebDriverWait(driver, 20)
 
-            campo_para = wait.until(
-                EC.presence_of_element_located((By.NAME, "to"))
+            campo_mensagem = wait.until(
+                EC.presence_of_element_located((By.ID, "mensagem"))
             )
-            campo_para.clear()
-            campo_para.send_keys("tiago3242@gmail.com")
-
-            campo_assunto = wait.until(
-                EC.presence_of_element_located((By.NAME, "subjectbox"))
-            )
-            campo_assunto.clear()
-            campo_assunto.send_keys("Alteração de preço detectada")
-
-            campo_corpo = wait.until(
-                EC.presence_of_element_located(
-                    (By.XPATH, '//div[@aria-label="Corpo da mensagem"]')
-                )
-            )
-            campo_corpo.click()
-            campo_corpo.send_keys(
+            campo_mensagem.clear()
+            campo_mensagem.send_keys(
                 f"Alteração detectada.\n\n"
                 f"Valor antigo: {valor_antigo}\n"
                 f"Valor novo: {valor_novo}\n"
                 f"URL monitorada: {self.url_monitorada}"
             )
 
-            botao_enviar = wait.until(
-                EC.element_to_be_clickable(
-                    (By.XPATH, '//div[@role="button" and @aria-label*="Enviar"]')
-                )
+            botao = wait.until(
+                EC.element_to_be_clickable((By.ID, "btnConfirmar"))
             )
-            botao_enviar.click()
+            botao.click()
 
-            print("E-mail enviado com sucesso.")
-            self.logger.info("E-mail enviado com sucesso.")
+            print("Página pública preenchida e botão acionado com sucesso.")
+            self.logger.info("Página pública preenchida e botão acionado com sucesso.")
+
+            time.sleep(3)
 
         except Exception as erro:
-            print(f"Erro ao interagir com o Gmail: {erro}")
-            self.logger.error(f"Erro ao interagir com o Gmail: {erro}")
+            print(f"Erro ao registrar alteração na página pública: {erro}")
+            self.logger.error(f"Erro ao registrar alteração na página pública: {erro}")
 
         finally:
             driver.get(self.url_monitorada)
