@@ -3,21 +3,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
 from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
 
 
 class Navegador:
-    def __init__(self, timeout=30):
+    def __init__(self):
         options = Options()
-        options.add_argument(r"--user-data-dir=C:\selenium_chrome_profile")
         options.add_argument("--start-maximized")
-        options.add_argument("--disable-dev-shm-usage")
-        options.add_argument("--no-sandbox")
-        options.add_argument("--disable-extensions")
 
         self.driver = webdriver.Chrome(options=options)
-        self.driver.set_page_load_timeout(timeout)
-        self.driver.implicitly_wait(5)
 
     def acessar(self, url):
         try:
@@ -27,28 +20,17 @@ class Navegador:
             print(f"Erro ao acessar a URL: {erro}")
             return False
 
-    def pegar_valor(self, tipo_busca, seletor):
+    def pegar_valor(self, seletor):
         try:
-            if tipo_busca == "xpath":
+            if seletor.startswith("/") or seletor.startswith("("):
                 elemento = self.driver.find_element(By.XPATH, seletor)
-                valor = self._extrair_numero(elemento.text)
-                return {
-                    "valor": valor,
-                    "metodo": "XPATH",
-                    "posicao": seletor
-                }
+                return self._extrair_numero(elemento.text)
 
-            if tipo_busca == "texto":
-                body = self.driver.find_element(By.TAG_NAME, "body")
-                texto_pagina = " ".join(body.text.split())
-                valor = self._extrair_numero_associado(texto_pagina, seletor)
-                return {
-                    "valor": valor,
-                    "metodo": "REGEX/TEXTO",
-                    "posicao": f'termo=\"{seletor}\"'
-                }
+            termo = seletor.strip().lower()
+            body = self.driver.find_element(By.TAG_NAME, "body")
+            texto_pagina = " ".join(body.text.split())
 
-            return None
+            return self._extrair_numero_associado(texto_pagina, termo)
 
         except Exception:
             return None
@@ -69,6 +51,7 @@ class Navegador:
 
         if match:
             return match.group(0)
+
         return None
 
     def _extrair_numero(self, texto):
@@ -80,10 +63,8 @@ class Navegador:
 
         if match:
             return match.group(0)
+
         return None
 
     def fechar(self):
-        try:
-            self.driver.quit()
-        except Exception:
-            pass
+        self.driver.quit()

@@ -163,3 +163,39 @@ Stacktrace:
 2026-04-07 12:51:21,091 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)': /session/d013140b1acca80d12d12469c8327a9b
 2026-04-07 12:51:25,146 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=51373): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/d013140b1acca80d12d12469c8327a9b
 2026-04-07 12:51:29,204 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=51373): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/d013140b1acca80d12d12469c8327a9b
+2026-04-11 17:41:55,877 - INFO - Usuário: tiago
+2026-04-11 17:41:55,877 - INFO - URL monitorada: https://www.uol.com.br/
+2026-04-11 17:41:55,877 - INFO - Tipo de busca: xpath
+2026-04-11 17:41:55,877 - INFO - Seletor: //*[@id="app"]/div[1]/div[5]/section[1]
+2026-04-11 17:41:55,962 - WARNING - Valor não encontrado.
+2026-04-11 17:42:08,813 - WARNING - Valor não encontrado.
+2026-04-11 17:42:19,952 - WARNING - Valor não encontrado.
+2026-04-11 17:42:32,556 - WARNING - Valor não encontrado.
+2026-04-11 17:42:44,487 - WARNING - Valor não encontrado.
+2026-04-11 17:42:56,795 - WARNING - Valor não encontrado.
+2026-04-11 17:43:09,083 - WARNING - Valor não encontrado.
+2026-04-11 17:43:21,217 - WARNING - Valor não encontrado.
+2026-04-11 17:43:33,085 - WARNING - Valor não encontrado.
+2026-04-11 17:43:44,924 - WARNING - Valor não encontrado.
+2026-04-11 17:43:57,017 - WARNING - Valor não encontrado.
+2026-04-11 17:44:09,219 - WARNING - Valor não encontrado.
+2026-04-11 17:44:21,575 - WARNING - Valor não encontrado.
+2026-04-11 17:44:33,279 - WARNING - Valor não encontrado.
+2026-04-11 17:44:45,585 - WARNING - Valor não encontrado.
+2026-04-11 17:44:57,689 - WARNING - Valor não encontrado.
+2026-04-11 17:45:10,130 - WARNING - Valor não encontrado.
+2026-04-11 17:45:22,759 - WARNING - Valor não encontrado.
+2026-04-11 17:45:23,241 - INFO - Monitoramento encerrado pelo usuário.
+2026-04-11 17:45:23,259 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None)': /session/e14f9b2849ccef6ae58a17ad18aa7bd3
+2026-04-11 17:45:27,355 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=57337): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/e14f9b2849ccef6ae58a17ad18aa7bd3
+2026-04-11 17:45:31,463 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='localhost', port=57337): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente")': /session/e14f9b2849ccef6ae58a17ad18aa7bd3
+2026-04-11 17:46:31,179 - INFO - Usuário: tiago
+2026-04-11 17:46:31,179 - INFO - URL monitorada: https://www.uol.com.br/
+2026-04-11 17:46:31,179 - INFO - Tipo de busca: xpath
+2026-04-11 17:46:31,179 - INFO - Seletor: //*[@id="app"]/div[1]/header[1]
+2026-04-11 17:46:31,526 - INFO - Encontrado por XPATH: //*[@id="app"]/div[1]/header[1] -> 202
+2026-04-11 17:46:31,526 - INFO - Valor inicial: 202
+2026-04-11 17:46:44,256 - INFO - Encontrado por XPATH: //*[@id="app"]/div[1]/header[1] -> 5,011
+2026-04-11 17:46:44,258 - INFO - Alteração detectada: 202 -> 5,011
+2026-04-11 17:46:44,258 - INFO - Abrindo página de registro da alteração.
+2026-04-11 17:46:44,839 - INFO - Página pública preenchida e botão acionado com sucesso.
