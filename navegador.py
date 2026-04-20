@@ -1,20 +1,28 @@
 import re
-from selenium import webdriver
+from seleniumbase import Driver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
-from selenium.webdriver.chrome.options import Options
 
 
 class Navegador:
     def __init__(self):
-        options = Options()
-        options.add_argument("--start-maximized")
-
-        self.driver = webdriver.Chrome(options=options)
+        # uc=True ativa o modo "undetected" (bypass de Cloudflare)
+        # locale_code="pt-BR" forca o idioma pra nao aparecer o tradutor
+        self.driver = Driver(
+            uc=True,
+            headless=False,
+            locale_code="pt-BR",
+            do_not_track=True,
+            disable_features="TranslateUI,Translate",
+        )
+        self.driver.maximize_window()
 
     def acessar(self, url):
         try:
-            self.driver.get(url)
+            if "dontpad" in url:
+                self.driver.uc_open_with_reconnect(url, reconnect_time=4)
+            else:
+                self.driver.get(url)
             return True
         except WebDriverException as erro:
             print(f"Erro ao acessar a URL: {erro}")

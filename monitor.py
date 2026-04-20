@@ -21,9 +21,9 @@ class Monitor:
                 valor_atual = self.nav.pegar_valor(self.seletor)
 
                 if valor_atual is None:
-                    print("Valor não encontrado.")
+                    print("Valor nao encontrado.")
                     time.sleep(5)
-                    self.nav.driver.refresh()
+                    self.nav.driver.get(self.url_monitorada)  # auto-corrige
                     continue
 
                 if self.valor_anterior is None:
@@ -31,18 +31,21 @@ class Monitor:
                     print(f"Valor inicial: {valor_atual}")
 
                 elif valor_atual != self.valor_anterior:
-                    print(f"Alteração detectada: {self.valor_anterior} -> {valor_atual}")
+                    print(f"Alteracao detectada: {self.valor_anterior} -> {valor_atual}")
                     self.acao(self.valor_anterior, valor_atual)
                     self.valor_anterior = valor_atual
 
                 else:
-                    print(f"Sem alteração: {valor_atual}")
+                    print(f"Sem alteracao: {valor_atual}")
 
                 time.sleep(5)
-                self.nav.driver.refresh()
+                # MUDANÇA CHAVE: em vez de refresh(), navega explicitamente.
+                # Se o notificador deixou a aba em qualquer outro lugar,
+                # isso corrige automaticamente.
+                self.nav.driver.get(self.url_monitorada)
 
             except KeyboardInterrupt:
-                print("\nMonitoramento encerrado pelo usuário.")
+                print("\nMonitoramento encerrado pelo usuario.")
                 break
 
     def _esperar_pagina(self):
@@ -51,10 +54,8 @@ class Monitor:
         )
 
     def acao(self, valor_antigo, valor_novo):
-        print("\n===== ALTERAÇÃO DETECTADA =====")
+        print("\n===== ALTERACAO DETECTADA =====")
         print(f"Valor antigo: {valor_antigo}")
         print(f"Valor novo: {valor_novo}")
         print("================================\n")
-
-        # Chama o notificador (escreve no Dontpad + clica no botão)
         self.notificador.notificar(valor_antigo, valor_novo, self.usuario)
