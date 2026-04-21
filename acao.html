@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module acao</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">acao</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctiago%5Ctrabalho%5Ctrabalho_1%5Cacao.py">c:\users\tiago\trabalho\trabalho_1\acao.py</a></td></tr></table>
+    <p><span class="code">Modulo&nbsp;de&nbsp;acao/notificacao&nbsp;de&nbsp;mudancas&nbsp;de&nbsp;preco.<br>
+&nbsp;<br>
+Implementa&nbsp;a&nbsp;classe&nbsp;<a href="#Notificador">Notificador</a>,&nbsp;responsavel&nbsp;por&nbsp;abrir&nbsp;uma&nbsp;pagina&nbsp;publica<br>
+(Dontpad)&nbsp;em&nbsp;nova&nbsp;aba,&nbsp;escrever&nbsp;a&nbsp;mensagem&nbsp;com&nbsp;o&nbsp;valor&nbsp;antigo&nbsp;e&nbsp;novo,<br>
+e&nbsp;clicar&nbsp;em&nbsp;um&nbsp;botao&nbsp;-&nbsp;cumprindo&nbsp;o&nbsp;criterio&nbsp;do&nbsp;trabalho:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"interagir&nbsp;com&nbsp;outra&nbsp;pagina&nbsp;e&nbsp;clicar&nbsp;em&nbsp;um&nbsp;botao".<br>
+&nbsp;<br>
+Qualquer&nbsp;pessoa&nbsp;pode&nbsp;abrir&nbsp;a&nbsp;mesma&nbsp;URL&nbsp;do&nbsp;Dontpad&nbsp;em&nbsp;outro&nbsp;navegador<br>
+e&nbsp;dar&nbsp;F5&nbsp;para&nbsp;visualizar&nbsp;as&nbsp;mensagens&nbsp;enviadas.<br>
+&nbsp;<br>
+Complexidade&nbsp;(Big&nbsp;O):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;notificar():&nbsp;O(1)&nbsp;-&nbsp;numero&nbsp;constante&nbsp;de&nbsp;operacoes&nbsp;no&nbsp;DOM.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="time.html">time</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="acao.html#Notificador">Notificador</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Notificador">class <strong>Notificador</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Notificador">Notificador</a>(navegador,&nbsp;url_destino=None)<br>
+&nbsp;<br>
+Envia&nbsp;alerta&nbsp;de&nbsp;mudanca&nbsp;de&nbsp;preco&nbsp;para&nbsp;uma&nbsp;pagina&nbsp;publica&nbsp;(Dontpad).<br>
+&nbsp;<br>
+Qualquer&nbsp;usuario&nbsp;pode&nbsp;abrir&nbsp;a&nbsp;mesma&nbsp;URL&nbsp;e&nbsp;dar&nbsp;F5&nbsp;para&nbsp;visualizar<br>
+as&nbsp;mensagens&nbsp;salvas&nbsp;pelo&nbsp;sistema.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nav&nbsp;(Navegador):&nbsp;Instancia&nbsp;do&nbsp;navegador&nbsp;em&nbsp;uso.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url_destino&nbsp;(str):&nbsp;URL&nbsp;do&nbsp;Dontpad&nbsp;onde&nbsp;as&nbsp;mensagens&nbsp;serao&nbsp;salvas.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Notificador-__init__"><strong>__init__</strong></a>(self, navegador, url_destino=None)</dt><dd><span class="code">Inicializa&nbsp;o&nbsp;<a href="#Notificador">Notificador</a>.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;navegador&nbsp;(Navegador):&nbsp;Instancia&nbsp;do&nbsp;Navegador&nbsp;em&nbsp;uso.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url_destino&nbsp;(str,&nbsp;optional):&nbsp;URL&nbsp;do&nbsp;Dontpad.&nbsp;Usa&nbsp;URL_PADRAO<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;se&nbsp;nao&nbsp;for&nbsp;informada.</span></dd></dl>
+
+<dl><dt><a name="Notificador-notificar"><strong>notificar</strong></a>(self, valor_antigo, valor_novo, usuario='sistema')</dt><dd><span class="code">Notifica&nbsp;a&nbsp;mudanca&nbsp;de&nbsp;preco&nbsp;escrevendo&nbsp;no&nbsp;Dontpad.<br>
+&nbsp;<br>
+Fluxo&nbsp;completo:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;Abre&nbsp;nova&nbsp;aba&nbsp;no&nbsp;navegador.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;Acessa&nbsp;o&nbsp;Dontpad&nbsp;(com&nbsp;bypass&nbsp;de&nbsp;Cloudflare&nbsp;se&nbsp;disponivel).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;Simula&nbsp;interacao&nbsp;humana&nbsp;(movimento&nbsp;de&nbsp;mouse).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;Encontra&nbsp;o&nbsp;textarea&nbsp;da&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;Escreve&nbsp;a&nbsp;mensagem&nbsp;com&nbsp;valor&nbsp;antigo/novo.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;6.&nbsp;Aguarda&nbsp;o&nbsp;save&nbsp;automatico&nbsp;do&nbsp;Dontpad.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;7.&nbsp;Clica&nbsp;em&nbsp;um&nbsp;botao&nbsp;da&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;8.&nbsp;Volta&nbsp;para&nbsp;a&nbsp;aba&nbsp;original&nbsp;(pagina&nbsp;monitorada).<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor_antigo&nbsp;(str):&nbsp;Valor&nbsp;anterior&nbsp;antes&nbsp;da&nbsp;mudanca.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor_novo&nbsp;(str):&nbsp;Valor&nbsp;atual&nbsp;apos&nbsp;a&nbsp;mudanca.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(str,&nbsp;optional):&nbsp;Nome&nbsp;do&nbsp;usuario.&nbsp;Default:&nbsp;'sistema'.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;notificacao&nbsp;foi&nbsp;enviada,&nbsp;False&nbsp;caso&nbsp;contrario.</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>PAUSA_VISUALIZACAO</strong> = 10</dl>
+
+<dl><dt><strong>TIMEOUT_SAVE</strong> = 15</dl>
+
+<dl><dt><strong>TIMEOUT_TEXTAREA</strong> = 20</dl>
+
+<dl><dt><strong>URL_PADRAO</strong> = 'https://dontpad.com/trabalho-algo-2422082020'</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

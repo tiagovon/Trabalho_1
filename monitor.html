@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module monitor</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">monitor</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctiago%5Ctrabalho%5Ctrabalho_1%5Cmonitor.py">c:\users\tiago\trabalho\trabalho_1\monitor.py</a></td></tr></table>
+    <p><span class="code">Modulo&nbsp;de&nbsp;monitoramento&nbsp;continuo&nbsp;de&nbsp;valores&nbsp;em&nbsp;paginas&nbsp;web.<br>
+&nbsp;<br>
+Implementa&nbsp;a&nbsp;classe&nbsp;<a href="#Monitor">Monitor</a>,&nbsp;que&nbsp;fica&nbsp;em&nbsp;loop&nbsp;verificando&nbsp;periodicamente<br>
+o&nbsp;valor&nbsp;de&nbsp;um&nbsp;campo&nbsp;na&nbsp;pagina.&nbsp;Quando&nbsp;detecta&nbsp;uma&nbsp;alteracao,&nbsp;dispara&nbsp;a<br>
+acao&nbsp;de&nbsp;notificacao&nbsp;via&nbsp;Notificador.<br>
+&nbsp;<br>
+Complexidade&nbsp;(Big&nbsp;O):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;iniciar():&nbsp;O(t&nbsp;*&nbsp;n)&nbsp;onde&nbsp;t&nbsp;=&nbsp;numero&nbsp;de&nbsp;iteracoes&nbsp;e&nbsp;n&nbsp;=&nbsp;tamanho&nbsp;da&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;acao():&nbsp;O(1)&nbsp;+&nbsp;complexidade&nbsp;do&nbsp;Notificador&nbsp;(abertura&nbsp;de&nbsp;aba,&nbsp;escrita).</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="selenium.webdriver.support.expected_conditions.html">selenium.webdriver.support.expected_conditions</a><br>
+</td><td class="multicolumn"><a href="time.html">time</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="monitor.html#Monitor">Monitor</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Monitor">class <strong>Monitor</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code"><a href="#Monitor">Monitor</a>(navegador,&nbsp;url_monitorada,&nbsp;seletor,&nbsp;usuario='sistema')<br>
+&nbsp;<br>
+Monitora&nbsp;continuamente&nbsp;um&nbsp;valor&nbsp;em&nbsp;uma&nbsp;pagina&nbsp;web.<br>
+&nbsp;<br>
+Quando&nbsp;detecta&nbsp;alteracao&nbsp;no&nbsp;valor,&nbsp;dispara&nbsp;um&nbsp;Notificador&nbsp;que<br>
+escreve&nbsp;o&nbsp;valor&nbsp;antigo&nbsp;e&nbsp;o&nbsp;novo&nbsp;em&nbsp;outra&nbsp;pagina&nbsp;publica&nbsp;(Dontpad).<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nav&nbsp;(Navegador):&nbsp;Instancia&nbsp;do&nbsp;Navegador&nbsp;para&nbsp;controle&nbsp;do&nbsp;Chrome.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url_monitorada&nbsp;(str):&nbsp;URL&nbsp;da&nbsp;pagina&nbsp;a&nbsp;ser&nbsp;monitorada.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seletor&nbsp;(str):&nbsp;Texto&nbsp;ou&nbsp;XPath&nbsp;que&nbsp;identifica&nbsp;o&nbsp;valor&nbsp;na&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(str):&nbsp;Nome&nbsp;do&nbsp;usuario&nbsp;que&nbsp;esta&nbsp;executando&nbsp;o&nbsp;sistema.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor_anterior&nbsp;(str):&nbsp;Ultimo&nbsp;valor&nbsp;lido&nbsp;da&nbsp;pagina&nbsp;(para&nbsp;comparacao).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;notificador&nbsp;(Notificador):&nbsp;Instancia&nbsp;do&nbsp;notificador&nbsp;de&nbsp;mudancas.<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Monitor-__init__"><strong>__init__</strong></a>(self, navegador, url_monitorada, seletor, usuario='sistema')</dt><dd><span class="code">Inicializa&nbsp;o&nbsp;monitor.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;navegador&nbsp;(Navegador):&nbsp;Instancia&nbsp;ja&nbsp;inicializada&nbsp;do&nbsp;Navegador.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url_monitorada&nbsp;(str):&nbsp;URL&nbsp;que&nbsp;sera&nbsp;monitorada&nbsp;continuamente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seletor&nbsp;(str):&nbsp;Texto&nbsp;ou&nbsp;XPath&nbsp;do&nbsp;valor&nbsp;a&nbsp;ser&nbsp;extraido.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usuario&nbsp;(str,&nbsp;optional):&nbsp;Nome&nbsp;do&nbsp;usuario.&nbsp;Default:&nbsp;'sistema'.</span></dd></dl>
+
+<dl><dt><a name="Monitor-acao"><strong>acao</strong></a>(self, valor_antigo, valor_novo)</dt><dd><span class="code">Executa&nbsp;a&nbsp;acao&nbsp;quando&nbsp;uma&nbsp;mudanca&nbsp;de&nbsp;valor&nbsp;e&nbsp;detectada.<br>
+&nbsp;<br>
+Loga&nbsp;a&nbsp;alteracao&nbsp;no&nbsp;console&nbsp;e&nbsp;delega&nbsp;ao&nbsp;Notificador&nbsp;a&nbsp;tarefa<br>
+de&nbsp;escrever&nbsp;a&nbsp;mensagem&nbsp;em&nbsp;outra&nbsp;pagina&nbsp;publica.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor_antigo&nbsp;(str):&nbsp;Valor&nbsp;anterior&nbsp;lido&nbsp;da&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;valor_novo&nbsp;(str):&nbsp;Novo&nbsp;valor&nbsp;lido&nbsp;apos&nbsp;a&nbsp;mudanca.</span></dd></dl>
+
+<dl><dt><a name="Monitor-iniciar"><strong>iniciar</strong></a>(self)</dt><dd><span class="code">Inicia&nbsp;o&nbsp;loop&nbsp;infinito&nbsp;de&nbsp;monitoramento.<br>
+&nbsp;<br>
+A&nbsp;cada&nbsp;INTERVALO_ENTRE_LEITURAS&nbsp;segundos:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;Espera&nbsp;a&nbsp;pagina&nbsp;carregar&nbsp;completamente.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;Extrai&nbsp;o&nbsp;valor&nbsp;atual&nbsp;da&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;Compara&nbsp;com&nbsp;o&nbsp;valor&nbsp;anterior.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;Se&nbsp;houve&nbsp;alteracao,&nbsp;dispara&nbsp;o&nbsp;Notificador.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;Recarrega&nbsp;a&nbsp;pagina&nbsp;para&nbsp;pegar&nbsp;novo&nbsp;valor.<br>
+&nbsp;<br>
+Loop&nbsp;interrompido&nbsp;graciosamente&nbsp;com&nbsp;Ctrl+C&nbsp;(KeyboardInterrupt).</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>INTERVALO_ENTRE_LEITURAS</strong> = 5</dl>
+
+<dl><dt><strong>TIMEOUT_PAGINA</strong> = 10</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module main</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">main</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctiago%5Ctrabalho%5Ctrabalho_1%5Cmain.py">c:\users\tiago\trabalho\trabalho_1\main.py</a></td></tr></table>
+    <p><span class="code">Modulo&nbsp;principal&nbsp;do&nbsp;sistema&nbsp;de&nbsp;monitoramento&nbsp;de&nbsp;precos.<br>
+&nbsp;<br>
+Este&nbsp;modulo&nbsp;e&nbsp;o&nbsp;ponto&nbsp;de&nbsp;entrada&nbsp;da&nbsp;aplicacao.&nbsp;Solicita&nbsp;ao&nbsp;usuario:<br>
+-&nbsp;Nome&nbsp;(valida&nbsp;apenas&nbsp;letras&nbsp;e&nbsp;espacos,&nbsp;minimo&nbsp;3&nbsp;caracteres)<br>
+-&nbsp;URL&nbsp;da&nbsp;pagina&nbsp;a&nbsp;ser&nbsp;monitorada&nbsp;(valida&nbsp;formato&nbsp;http/https)<br>
+-&nbsp;Seletor&nbsp;(texto&nbsp;ou&nbsp;XPath&nbsp;do&nbsp;valor&nbsp;a&nbsp;ser&nbsp;monitorado)<br>
+&nbsp;<br>
+Apos&nbsp;validar&nbsp;as&nbsp;entradas,&nbsp;inicializa&nbsp;o&nbsp;navegador&nbsp;e&nbsp;inicia&nbsp;o&nbsp;monitoramento<br>
+continuo&nbsp;da&nbsp;pagina&nbsp;informada.<br>
+&nbsp;<br>
+Exemplo&nbsp;de&nbsp;uso:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;$&nbsp;python&nbsp;main.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Digite&nbsp;seu&nbsp;nome:&nbsp;Tiago<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Digite&nbsp;a&nbsp;URL:&nbsp;<a href="https://coinmarketcap.com/currencies/bitcoin/">https://coinmarketcap.com/currencies/bitcoin/</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;Digite&nbsp;o&nbsp;texto&nbsp;ou&nbsp;XPATH&nbsp;do&nbsp;valor:&nbsp;Bitcoin&nbsp;price</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="sys.html">sys</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor functions-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Functions</strong></td></tr>
+    
+<tr><td class="decor functions-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><span class="code">Funcao&nbsp;principal.&nbsp;Orquestra&nbsp;o&nbsp;fluxo&nbsp;do&nbsp;programa.<br>
+&nbsp;<br>
+Passos:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;Solicita&nbsp;e&nbsp;valida&nbsp;o&nbsp;nome&nbsp;do&nbsp;usuario.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;Solicita&nbsp;e&nbsp;valida&nbsp;a&nbsp;URL&nbsp;a&nbsp;ser&nbsp;monitorada.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;3.&nbsp;Solicita&nbsp;o&nbsp;seletor&nbsp;(texto&nbsp;ou&nbsp;XPath).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;4.&nbsp;Inicia&nbsp;o&nbsp;navegador&nbsp;e&nbsp;acessa&nbsp;a&nbsp;URL.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;5.&nbsp;Dispara&nbsp;o&nbsp;monitoramento&nbsp;continuo.</span></dd></dl>
+ <dl><dt><a name="-nome_valido"><strong>nome_valido</strong></a>(nome)</dt><dd><span class="code">Valida&nbsp;se&nbsp;um&nbsp;nome&nbsp;esta&nbsp;no&nbsp;formato&nbsp;correto.<br>
+&nbsp;<br>
+O&nbsp;nome&nbsp;deve&nbsp;ter&nbsp;pelo&nbsp;menos&nbsp;3&nbsp;caracteres&nbsp;e&nbsp;conter&nbsp;apenas&nbsp;letras&nbsp;e&nbsp;espacos.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nome&nbsp;(str):&nbsp;Nome&nbsp;a&nbsp;ser&nbsp;validado.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;se&nbsp;o&nbsp;nome&nbsp;for&nbsp;valido,&nbsp;False&nbsp;caso&nbsp;contrario.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-nome_valido">nome_valido</a>("Tiago")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-nome_valido">nome_valido</a>("Ti")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;False<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-nome_valido">nome_valido</a>("Tiago123")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;False</span></dd></dl>
+ <dl><dt><a name="-pedir_entrada"><strong>pedir_entrada</strong></a>(mensagem)</dt><dd><span class="code">Solicita&nbsp;entrada&nbsp;do&nbsp;usuario&nbsp;garantindo&nbsp;ordem&nbsp;correta&nbsp;no&nbsp;terminal.<br>
+&nbsp;<br>
+Usa&nbsp;sys.stdout.write&nbsp;com&nbsp;flush&nbsp;para&nbsp;forcar&nbsp;a&nbsp;mensagem&nbsp;a&nbsp;aparecer<br>
+ANTES&nbsp;do&nbsp;cursor&nbsp;de&nbsp;digitacao,&nbsp;evitando&nbsp;problemas&nbsp;de&nbsp;buffer&nbsp;no<br>
+Git&nbsp;Bash&nbsp;e&nbsp;outros&nbsp;terminais.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;mensagem&nbsp;(str):&nbsp;Mensagem&nbsp;a&nbsp;ser&nbsp;exibida&nbsp;como&nbsp;prompt.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str:&nbsp;Texto&nbsp;digitado&nbsp;pelo&nbsp;usuario,&nbsp;sem&nbsp;espacos&nbsp;extras.</span></dd></dl>
+ <dl><dt><a name="-url_valida"><strong>url_valida</strong></a>(url)</dt><dd><span class="code">Valida&nbsp;se&nbsp;uma&nbsp;URL&nbsp;tem&nbsp;formato&nbsp;correto.<br>
+&nbsp;<br>
+A&nbsp;URL&nbsp;deve&nbsp;ter&nbsp;esquema&nbsp;http&nbsp;ou&nbsp;https&nbsp;e&nbsp;um&nbsp;dominio&nbsp;valido.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url&nbsp;(str):&nbsp;URL&nbsp;a&nbsp;ser&nbsp;validada.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;URL&nbsp;for&nbsp;valida,&nbsp;False&nbsp;caso&nbsp;contrario.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-url_valida">url_valida</a>("<a href="https://google.com">https://google.com</a>")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;<a href="#-url_valida">url_valida</a>("google.com")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;False</span></dd></dl>
+</td></tr></table>
+</body></html>
