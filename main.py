@@ -21,6 +21,7 @@ from urllib.parse import urlparse
 
 from navegador import Navegador
 from monitor import Monitor
+from logger import Logger
 
 
 def url_valida(url):
@@ -62,14 +63,6 @@ def nome_valido(nome):
 
     Returns:
         bool: True se o nome for valido, False caso contrario.
-
-    Example:
-        >>> nome_valido("Tiago")
-        True
-        >>> nome_valido("Ti")
-        False
-        >>> nome_valido("Tiago123")
-        False
     """
     if len(nome) < 3:
         return False
@@ -79,10 +72,6 @@ def nome_valido(nome):
 def pedir_entrada(mensagem):
     """
     Solicita entrada do usuario garantindo ordem correta no terminal.
-
-    Usa sys.stdout.write com flush para forcar a mensagem a aparecer
-    ANTES do cursor de digitacao, evitando problemas de buffer no
-    Git Bash e outros terminais.
 
     Args:
         mensagem (str): Mensagem a ser exibida como prompt.
@@ -103,8 +92,9 @@ def main():
         1. Solicita e valida o nome do usuario.
         2. Solicita e valida a URL a ser monitorada.
         3. Solicita o seletor (texto ou XPath).
-        4. Inicia o navegador e acessa a URL.
-        5. Dispara o monitoramento continuo.
+        4. Inicializa o sistema de logs.
+        5. Inicia o navegador e acessa a URL.
+        6. Dispara o monitoramento continuo.
     """
     # Validacao do nome
     nome = pedir_entrada("Digite seu nome: ")
@@ -126,19 +116,22 @@ def main():
         print("Seletor nao pode ser vazio.", flush=True)
         seletor = pedir_entrada("Digite o texto ou XPATH do valor: ")
 
-    print("\n[INFO] Iniciando navegador...", flush=True)
+    # Inicializa o logger de acoes
+    logger = Logger(usuario=nome)
+    logger.log("Sistema iniciado.")
+    logger.log(f"URL monitorada: {url}")
+    logger.log(f"Seletor configurado: {seletor}")
 
+    logger.log("Iniciando navegador...")
     nav = Navegador()
 
     if not nav.acessar(url):
-        print("Nao foi possivel abrir a pagina.", flush=True)
+        logger.log("ERRO: Nao foi possivel abrir a pagina.")
         return
 
-    print(f"[INFO] Monitoramento iniciado por: {nome}")
-    print(f"[INFO] URL: {url}")
-    print(f"[INFO] Seletor: {seletor}\n")
+    logger.log(f"Pagina acessada com sucesso. Monitoramento iniciado.")
 
-    monitor = Monitor(nav, url, seletor, usuario=nome)
+    monitor = Monitor(nav, url, seletor, usuario=nome, logger=logger)
     monitor.iniciar()
 
 

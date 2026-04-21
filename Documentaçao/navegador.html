@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Python: module navegador</title>
+</head><body>
+
+<table class="heading">
+<tr class="heading-text decor">
+<td class="title">&nbsp;<br><strong class="title">navegador</strong></td>
+<td class="extra"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Ctiago%5Ctrabalho%5Ctrabalho_1%5Cnavegador.py">c:\users\tiago\trabalho\trabalho_1\navegador.py</a></td></tr></table>
+    <p><span class="code">Modulo&nbsp;de&nbsp;controle&nbsp;do&nbsp;navegador&nbsp;web&nbsp;via&nbsp;SeleniumBase.<br>
+&nbsp;<br>
+Implementa&nbsp;a&nbsp;classe&nbsp;<a href="#Navegador">Navegador</a>,&nbsp;que&nbsp;encapsula&nbsp;toda&nbsp;a&nbsp;interacao&nbsp;com&nbsp;o<br>
+Chrome&nbsp;via&nbsp;Selenium.&nbsp;Oferece&nbsp;metodos&nbsp;para&nbsp;acessar&nbsp;URLs&nbsp;e&nbsp;extrair<br>
+valores&nbsp;numericos&nbsp;de&nbsp;paginas&nbsp;web,&nbsp;usando&nbsp;XPath&nbsp;direto&nbsp;ou&nbsp;busca<br>
+textual&nbsp;com&nbsp;expressoes&nbsp;regulares.<br>
+&nbsp;<br>
+Usa&nbsp;SeleniumBase&nbsp;com&nbsp;modo&nbsp;'undetected'&nbsp;(uc=True)&nbsp;para&nbsp;contornar<br>
+protecoes&nbsp;anti-bot&nbsp;como&nbsp;Cloudflare&nbsp;em&nbsp;sites&nbsp;monitorados.<br>
+&nbsp;<br>
+Complexidade&nbsp;(Big&nbsp;O):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;acessar():&nbsp;O(1)&nbsp;-&nbsp;tempo&nbsp;constante&nbsp;mais&nbsp;tempo&nbsp;de&nbsp;resposta&nbsp;da&nbsp;rede.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;pegar_valor():&nbsp;O(n)&nbsp;onde&nbsp;n&nbsp;e&nbsp;o&nbsp;tamanho&nbsp;do&nbsp;texto&nbsp;da&nbsp;pagina.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;_extrair_melhor_numero():&nbsp;O(n&nbsp;*&nbsp;k)&nbsp;onde&nbsp;k&nbsp;=&nbsp;ocorrencias&nbsp;do&nbsp;termo.</span></p>
+<p>
+<table class="section">
+<tr class="decor pkg-content-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Modules</strong></td></tr>
+    
+<tr><td class="decor pkg-content-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><table><tr><td class="multicolumn"><a href="re.html">re</a><br>
+</td><td class="multicolumn"></td><td class="multicolumn"></td><td class="multicolumn"></td></tr></table></td></tr></table><p>
+<table class="section">
+<tr class="decor index-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><strong class="bigsection">Classes</strong></td></tr>
+    
+<tr><td class="decor index-decor"><span class="code">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td><td>&nbsp;</td>
+<td class="singlecolumn"><dl>
+<dt class="heading-text"><a href="builtins.html#object">builtins.object</a>
+</dt><dd>
+<dl>
+<dt class="heading-text"><a href="navegador.html#Navegador">Navegador</a>
+</dt></dl>
+</dd>
+</dl>
+ <p>
+<table class="section">
+<tr class="decor title-decor heading-text">
+<td class="section-title" colspan=3>&nbsp;<br><a name="Navegador">class <strong>Navegador</strong></a>(<a href="builtins.html#object">builtins.object</a>)</td></tr>
+    
+<tr><td class="decor title-decor" rowspan=2><span class="code">&nbsp;&nbsp;&nbsp;</span></td>
+<td class="decor title-decor" colspan=2><span class="code">Encapsula&nbsp;o&nbsp;controle&nbsp;do&nbsp;navegador&nbsp;Chrome&nbsp;via&nbsp;SeleniumBase.<br>
+&nbsp;<br>
+Oferece&nbsp;metodos&nbsp;para&nbsp;navegar&nbsp;entre&nbsp;URLs&nbsp;e&nbsp;extrair&nbsp;valores&nbsp;numericos<br>
+de&nbsp;paginas&nbsp;web,&nbsp;com&nbsp;suporte&nbsp;a&nbsp;XPath&nbsp;e&nbsp;busca&nbsp;textual.<br>
+&nbsp;<br>
+Attributes:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;driver:&nbsp;Instancia&nbsp;do&nbsp;SeleniumBase&nbsp;Driver&nbsp;(Chrome&nbsp;em&nbsp;modo&nbsp;undetected).<br>&nbsp;</span></td></tr>
+<tr><td>&nbsp;</td>
+<td class="singlecolumn">Methods defined here:<br>
+<dl><dt><a name="Navegador-__init__"><strong>__init__</strong></a>(self)</dt><dd><span class="code">Inicializa&nbsp;o&nbsp;navegador&nbsp;com&nbsp;bypass&nbsp;de&nbsp;deteccao&nbsp;de&nbsp;automacao.<br>
+&nbsp;<br>
+Configuracoes&nbsp;aplicadas:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;uc=True:&nbsp;modo&nbsp;undetected&nbsp;(contorna&nbsp;Cloudflare).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;locale_code='pt-BR':&nbsp;evita&nbsp;que&nbsp;o&nbsp;Google&nbsp;Tradutor&nbsp;apareca.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;do_not_track=True:&nbsp;envia&nbsp;header&nbsp;DNT&nbsp;para&nbsp;mais&nbsp;privacidade.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;disable_features:&nbsp;desativa&nbsp;UI&nbsp;do&nbsp;tradutor.</span></dd></dl>
+
+<dl><dt><a name="Navegador-acessar"><strong>acessar</strong></a>(self, url)</dt><dd><span class="code">Acessa&nbsp;uma&nbsp;URL&nbsp;no&nbsp;navegador.<br>
+&nbsp;<br>
+Para&nbsp;URLs&nbsp;do&nbsp;Dontpad,&nbsp;usa&nbsp;o&nbsp;metodo&nbsp;uc_open_with_reconnect&nbsp;do<br>
+SeleniumBase,&nbsp;que&nbsp;passa&nbsp;automaticamente&nbsp;pelo&nbsp;Cloudflare.<br>
+Para&nbsp;outras&nbsp;URLs,&nbsp;usa&nbsp;o&nbsp;metodo&nbsp;get&nbsp;tradicional.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;url&nbsp;(str):&nbsp;URL&nbsp;completa&nbsp;a&nbsp;ser&nbsp;acessada&nbsp;(com&nbsp;http://&nbsp;ou&nbsp;https://).<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool:&nbsp;True&nbsp;se&nbsp;a&nbsp;pagina&nbsp;foi&nbsp;acessada&nbsp;com&nbsp;sucesso,&nbsp;False&nbsp;em&nbsp;caso<br>
+&nbsp;&nbsp;&nbsp;&nbsp;de&nbsp;erro&nbsp;de&nbsp;conexao&nbsp;ou&nbsp;navegador.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;nav&nbsp;=&nbsp;<a href="#Navegador">Navegador</a>()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;nav.<a href="#Navegador-acessar">acessar</a>("<a href="https://coinmarketcap.com/currencies/bitcoin/">https://coinmarketcap.com/currencies/bitcoin/</a>")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True</span></dd></dl>
+
+<dl><dt><a name="Navegador-fechar"><strong>fechar</strong></a>(self)</dt><dd><span class="code">Fecha&nbsp;o&nbsp;navegador&nbsp;e&nbsp;encerra&nbsp;a&nbsp;sessao&nbsp;do&nbsp;driver.<br>
+&nbsp;<br>
+Deve&nbsp;ser&nbsp;chamado&nbsp;ao&nbsp;final&nbsp;do&nbsp;uso&nbsp;para&nbsp;liberar&nbsp;recursos&nbsp;do<br>
+sistema&nbsp;(processo&nbsp;do&nbsp;Chrome,&nbsp;memoria,&nbsp;etc.).</span></dd></dl>
+
+<dl><dt><a name="Navegador-pegar_valor"><strong>pegar_valor</strong></a>(self, seletor)</dt><dd><span class="code">Extrai&nbsp;o&nbsp;valor&nbsp;numerico&nbsp;da&nbsp;pagina&nbsp;usando&nbsp;um&nbsp;seletor.<br>
+&nbsp;<br>
+O&nbsp;seletor&nbsp;pode&nbsp;ser:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Um&nbsp;XPath&nbsp;(comeca&nbsp;com&nbsp;'/'&nbsp;ou&nbsp;'('):&nbsp;busca&nbsp;o&nbsp;elemento&nbsp;especifico.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Um&nbsp;texto:&nbsp;busca&nbsp;a&nbsp;palavra&nbsp;na&nbsp;pagina&nbsp;e&nbsp;retorna&nbsp;o&nbsp;numero<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mais&nbsp;proximo/maior&nbsp;associado.<br>
+&nbsp;<br>
+Loga&nbsp;no&nbsp;console&nbsp;a&nbsp;posicao/estrategia&nbsp;usada,&nbsp;conforme&nbsp;exigido<br>
+pelo&nbsp;criterio&nbsp;do&nbsp;trabalho.<br>
+&nbsp;<br>
+Args:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;seletor&nbsp;(str):&nbsp;XPath&nbsp;ou&nbsp;texto&nbsp;a&nbsp;ser&nbsp;buscado&nbsp;na&nbsp;pagina.<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;str&nbsp;|&nbsp;None:&nbsp;String&nbsp;com&nbsp;o&nbsp;numero&nbsp;encontrado&nbsp;ou&nbsp;None&nbsp;se&nbsp;nao<br>
+&nbsp;&nbsp;&nbsp;&nbsp;encontrou.<br>
+&nbsp;<br>
+Example:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;nav.<a href="#Navegador-pegar_valor">pegar_valor</a>("//span[@class='price']")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'65.234,10'<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;&nbsp;nav.<a href="#Navegador-pegar_valor">pegar_valor</a>("Bitcoin&nbsp;price")<br>
+&nbsp;&nbsp;&nbsp;&nbsp;'70.432,55'</span></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><span class="code">dictionary&nbsp;for&nbsp;instance&nbsp;variables</span></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><span class="code">list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object</span></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>JANELA_BUSCA</strong> = 150</dl>
+
+<dl><dt><strong>PADRAO_NUMERO</strong> = r'\d{1,3}(?:[.,]\d{3})*(?:[.,]\d+)?|\d+(?:[.,]\d+)?'</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

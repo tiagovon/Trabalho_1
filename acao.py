@@ -37,7 +37,7 @@ class Notificador:
     TIMEOUT_SAVE = 15      # segundos esperando pelo save do servidor
     PAUSA_VISUALIZACAO = 10  # segundos antes de fechar a aba
 
-    def __init__(self, navegador, url_destino=None):
+    def __init__(self, navegador, url_destino=None, logger=None):
         """
         Inicializa o Notificador.
 
@@ -45,9 +45,17 @@ class Notificador:
             navegador (Navegador): Instancia do Navegador em uso.
             url_destino (str, optional): URL do Dontpad. Usa URL_PADRAO
                 se nao for informada.
+            logger (Logger, optional): Logger para registrar acoes.
         """
         self.nav = navegador
         self.url_destino = url_destino or self.URL_PADRAO
+        self.logger = logger
+    def _registrar(self, mensagem):
+        """Registra no logger se disponivel; senao, apenas imprime."""
+        if self.logger:
+            self.logger.log(mensagem)
+        else:
+            print(mensagem)
 
     def notificar(self, valor_antigo, valor_novo, usuario="sistema"):
         """

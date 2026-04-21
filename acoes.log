@@ -1,0 +1,51 @@
+=== LOG INICIADO EM 2026-04-20 22:01:59.250719 ===
+[20/04/2026 22:01:59] [tiago] Sistema iniciado.
+[20/04/2026 22:01:59] [tiago] URL monitorada: https://coinmarketcap.com/currencies/bitcoin/
+[20/04/2026 22:01:59] [tiago] Seletor configurado: Bitcoin price
+[20/04/2026 22:01:59] [tiago] Iniciando navegador...
+[20/04/2026 22:02:07] [tiago] Pagina acessada com sucesso. Monitoramento iniciado.
+[20/04/2026 22:02:09] [tiago] Valor inicial capturado: 76,095.43
+[20/04/2026 22:02:17] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:02:24] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:02:32] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:02:39] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:02:49] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:02:56] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:04] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:11] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:18] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:26] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:33] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:40] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:47] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:03:55] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:02] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:09] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:16] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:24] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:31] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:38] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:46] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:04:53] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:05:01] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:05:08] [tiago] Sem alteracao: 76,095.43
+[20/04/2026 22:05:16] [tiago] ALTERACAO DETECTADA: 76,095.43 -> 76,102.76
+[20/04/2026 22:06:11] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:06:19] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:06:26] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:06:34] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:06:41] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:06:48] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:06:56] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:07:03] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:07:10] [tiago] Sem alteracao: 76,102.76
+[20/04/2026 22:07:18] [tiago] ALTERACAO DETECTADA: 76,102.76 -> 76,090.44
+[20/04/2026 22:08:01] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:09] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:16] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:23] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:30] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:38] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:45] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:52] [tiago] Sem alteracao: 76,090.44
+[20/04/2026 22:08:58] [tiago] Monitoramento encerrado pelo usuario.
